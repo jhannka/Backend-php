@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia;
+}
+
+h1 {
+    text-align: center;
+    color: darkred;
+    margin-top: 100px;
+}
+
+.boton {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    border: 2px solid blue;
+    background-color: white;
+}
+
+.tablas {
+    border-collapse: separate;
+    margin-top: 10px;
+    width: auto;
+    margin: 0 auto;
+}
+
+tr td,
+thead tr th {
+    text-align: center;
+    border: 1px solid green;
+}
+
+#date td {
+    width: 20%;
+}

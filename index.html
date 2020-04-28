@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP - Backend</title>
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="text-center mt-4 mb-4">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <div class="alert alert-success" role="alert">
+                    <h1>PHP - Backend</h1>
+
+                </div>
+                <button class="btn btn-outline-success btn-lg btn-block" id="btn">Respuesta Backend</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <div class="datos">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Cedula</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Dirrecion</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Edad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="date">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="asset/js/jquery-3.4.1.min.js"></script>
+    <script>
+        var mi_div = $('#date');
+
+        $('#btn').click(() => {
+            $.ajax({
+                url: 'Backend/response.php',
+                type: 'GET',
+                dataType: 'json',
+                success: (datos) => {
+                    console.log(datos);
+                    datos.forEach((data, index) => {
+                        mi_div.append('<tr><td>' + data.Cedula + '</td><td>' + data.Nombre + '</td><td>' + data.Dirrecion + '</td><td>' + data.Telefono + '</td><td>' + data.Edad + '</td></tr>');
+                    });
+                },
+
+                error: (jqXhr, textStatus, errorMessage) => {
+                    console.log(errorMessage);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
